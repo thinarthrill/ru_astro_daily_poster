@@ -1,0 +1,1 @@
+# ru_astro_daily_poster
