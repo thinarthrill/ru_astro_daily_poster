@@ -22,10 +22,10 @@ bot = Bot(token=TELEGRAM_TOKEN)
 
 # === Временные слоты (утро, день, вечер, ночь) ===
 TIME_SLOTS = {
-    'morning': range(5, 9),     # 05:00–08:59
-    'day': range(9, 13),        # 09:00–12:59
-    'afternoon': range(13, 17), # 13:00–16:59
-    'evening': range(17, 23)    # 17:00–22:59
+    'morning': range(1, 2),     # 05:00–08:59
+    'day': range(3, 4),        # 09:00–12:59
+    'afternoon': range(7, 8), # 13:00–16:59
+    'evening': range(11, 12)    # 17:00–22:59
 }
 
 def get_current_slot():
