@@ -36,7 +36,18 @@ def get_current_slot():
     return None
 
 def download_json_from_gcs():
-    storage_client = storage.Client.from_service_account_json(GCS_CREDENTIALS_JSON)
+    key_str = os.getenv("GCS_KEY_JSON")
+    if not key_str:
+        raise ValueError("❌ GCS_KEY_JSON не установлена или пуста")
+
+    # Преобразуем строку из .env обратно в словарь
+    key_dict = json.loads(key_str)
+    # Сохраняем как файл
+    with open("gcs_key.json", "w") as f:
+        json.dump(key_dict, f)
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "gcs_key.json"
+
+    storage_client = storage.Client()
     bucket = storage_client.bucket(GCS_BUCKET_NAME)
     blob = bucket.blob(GCS_FILE_NAME)
     content = blob.download_as_string()
