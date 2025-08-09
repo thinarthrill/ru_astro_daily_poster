@@ -12,7 +12,7 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHANNEL_ID = os.getenv("TELEGRAM_CHANNEL_ID")
+CHANNEL_ID = os.getenv("CHANNEL_ID")
 GCS_BUCKET_NAME = os.getenv("GCS_BUCKET_NAME")
 GCS_FILE_NAME = os.getenv("GCS_FILE_NAME")
 
